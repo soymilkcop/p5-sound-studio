@@ -3,70 +3,182 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Price list · P5 sound studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Services | P5 Sound Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
   <style>
+    /* 基础复位与主页一致 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: "Inter", sans-serif;
-      background: #ffe0e0;
-      color: #000000;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
+      background: #fcfcfc;
+      color: #1a1a1a;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
-    .page {
-      max-width: 800px;
+
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 40px;
+      max-width: 900px; /* 较窄的容器，增加阅读高级感 */
       margin: 0 auto;
-      padding: 20px 24px 80px;
-      text-align: center;
     }
+
+    /* 标题样式 */
+    header {
+      margin-bottom: 80px;
+    }
+
     h1 {
       font-family: "Space Grotesk", sans-serif;
-      font-size: 40px;
-      font-weight: 400;
-      margin-bottom: 64px;
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
+
+    /* 服务章节布局 */
     .section {
-      margin-bottom: 64px;
+      margin-bottom: 80px;
     }
+
     .section-title {
       font-family: "Space Grotesk", sans-serif;
-      font-size: 22px;
-      font-weight: 400;
-      margin-bottom: 24px;
-    }
-    p {
-      font-size: 16px;
-      margin-bottom: 12px;
-    }
-    .back {
-      display: inline-block;
-      margin-top: 64px;
       font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #999;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    /* 服务项目：左右对齐布局 */
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+      gap: 20px;
+    }
+
+    .service-name {
+      font-size: 16px;
+      font-weight: 400;
+      max-width: 70%;
+    }
+
+    .price-value {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .service-note {
+      font-size: 13px;
+      color: #777;
+      margin-top: -16px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    /* 补充说明区域 */
+    .info-footer {
+      font-size: 14px;
+      color: #666;
+      background: #f6f6f6;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    .info-footer p { margin-bottom: 10px; }
+
+    /* 返回按钮 */
+    .back-nav {
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+
+    .back-nav a {
       text-decoration: none;
       color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+      transition: opacity 0.3s;
+    }
+
+    .back-nav a:hover { opacity: 0.6; }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .wrapper { padding: 40px 24px; }
+      .price-row { flex-direction: column; gap: 4px; }
+      .price-value { margin-bottom: 10px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <h1>Price list</h1>
 
-    <div class="section">
-      <div class="section-title">Set-up</div>
-      <p>Acoustic, electric guitars and basses without locking tremolo unit: £48.00 (excluding strings)</p>
-      <p>Electric guitars with locking tremolos: £55.00 (excluding strings)</p>
-      <p>If the frets are worn and need stoning and recrowning, add £20.00</p>
-    </div>
+  <div class="wrapper">
+    <header>
+      <h1>Price List</h1>
+    </header>
 
-    <div class="section">
-      <div class="section-title">Refret</div>
-      <p>Plain unbound fingerboard: £150.00</p>
-      <p>Lacquered maple board (includes re-lacquer): £250.00</p>
-    </div>
+    <main>
+      <section class="section">
+        <h2 class="section-title">01. Set-up</h2>
+        
+        <div class="price-row">
+          <span class="service-name">Acoustic, electric guitars & basses <br><small>(Standard bridge)</small></span>
+          <span class="price-value">£48.00</span>
+        </div>
+        <span class="service-note">*Excluding strings.</span>
 
-    <a href="index.html" class="back">Back to home</a>
+        <div class="price-row">
+          <span class="service-name">Electric guitars with locking tremolos</span>
+          <span class="price-value">£55.00</span>
+        </div>
+        <span class="service-note">*Floyd Rose, Ibanez Edge, etc. Excluding strings.</span>
+
+        <div class="price-row">
+          <span class="service-name">Fret stone and recrowning <br><small>(Add-on for worn frets)</small></span>
+          <span class="price-value">+ £20.00</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">02. Refret</h2>
+        
+        <div class="price-row">
+          <span class="service-name">Plain unbound fingerboard</span>
+          <span class="price-value">£150.00</span>
+        </div>
+
+        <div class="price-row">
+          <span class="service-name">Lacquered maple board <br><small>(Includes professional re-lacquer)</small></span>
+          <span class="price-value">£250.00</span>
+        </div>
+      </section>
+
+      <section class="info-footer">
+        <p><strong>Note:</strong> You are welcome to provide your own strings, or we can supply a set for an additional cost.</p>
+        <p><strong>Custom Repairs:</strong> We also offer nut replacements, electronics repair, and headstock restoration. Please contact us for a bespoke quote.</p>
+        <p><strong>Turnaround:</strong> Average service time is 30mins - 5 working days.</p>
+      </section>
+
+      <nav class="back-nav">
+        <a href="index.html">← Back to home</a>
+      </nav>
+    </main>
   </div>
+
 </body>
 </html>
