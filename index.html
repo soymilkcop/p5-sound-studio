@@ -3,110 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>P5 sound studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>P5 Sound Studio | London Guitar Repair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
   <style>
+    /* 基础复位 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: "Inter", sans-serif;
-      background: #ffe0e0;
-      color: #000000;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
+      background: #fcfcfc; /* 极简暖白 */
+      color: #1a1a1a;     /* 深炭黑 */
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
-    .container {
+
+    /* 布局容器 */
+    .wrapper {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 64px 24px 24px;
-      text-align: center;
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
+    /* 顶部 Logo 区域 */
+    header {
+      margin-bottom: 120px;
+    }
+
     h1 {
       font-family: "Space Grotesk", sans-serif;
-      font-size: 44px;
-      font-weight: 400;
-      margin-bottom: 24px;
-    }
-    h2 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 32px;
-      font-weight: 400;
-      margin-bottom: 32px;
-      text-align: center;
-    }
-    h3 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 52px;
-      font-weight: 400;
-      margin-bottom: 24px;
-      line-height: 1.0; 
-    }
-    footer {
-      font-family: "Inter", sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      color: #999999;
-      text-align: center;
-      margin-top: 10px;
-      padding: 24px 0;
-    }
-    p {
-      max-width: 640px;
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
-    .nav {
-      margin-top: 32px;
-    }
-    .nav a {
-      margin: 0 20px;
-      text-decoration: none;
-      color: #000;
-      font-size: 15px;
-      border-bottom: 1px solid transparent;
-    }
-    .nav a:hover {
-      border-bottom: 1px solid #000;
-    }
-    .page {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 120px 24px 80px;
-    }
-    .price-item {
-      margin-bottom: 32px;
-    }
-    .price-item strong {
+      font-size: clamp(2.5rem, 8vw, 4rem); /* 响应式字体大小 */
       font-weight: 500;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
     }
-    .back {
-      display: inline-block;
-      margin-top: 64px;
+
+    h1 span {
+      display: block;
+      font-weight: 300;
+      font-size: 0.4em;
+      letter-spacing: 0.2em;
+      margin-top: 10px;
+      color: #666;
+    }
+
+    /* 主内容区 */
+    main {
+      flex: 1;
+    }
+
+    .hero-text {
+      font-size: 20px;
+      font-weight: 400;
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+
+    .manifesto {
+      font-size: 15px;
+      color: #555;
+      max-width: 500px;
+      border-left: 1px solid #ddd;
+      padding-left: 24px;
+      margin-bottom: 80px;
+    }
+
+    .manifesto strong {
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* 导航链接 */
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
       text-decoration: none;
       color: #000;
       font-size: 14px;
-      border-bottom: 1px solid #000;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    /* 简约的下划线动画 */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* 页脚 */
+    footer {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: #999;
+      text-transform: uppercase;
+      margin-top: 60px;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .wrapper { padding: 40px 24px; }
+      header { margin-bottom: 60px; }
+      .nav-links { flex-direction: column; gap: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Home -->
-  <div class="container" id="home">
-    <h1>P5<br />
-      sound studio</h1>
-    <p>London Guitar Maintenance and Repair</p>
-    <p>
-      We are an all-women guitar and sound studio.<br />
-      We warmly welcome LGBTQ+ musicians, guitarists, and bassists.<br />
-      With 10 years of performing experience and 3 years of repair experience, we offer some of the best value and service in London.
-    </p>
-    <div class="nav">
-      <a href="price.html">Price list</a>
-      <a href="contact.html">Appointment & Contact</a>
-    </div>
-  <footer>© P5 Sound Studio</footer>
+  <div class="wrapper">
+    <header>
+      <h1>P5<span>Sound Studio</span></h1>
+    </header>
+
+    <main>
+      <div class="hero-text">
+        London Guitar Maintenance and Repair.
+      </div>
+
+      <div class="manifesto">
+        <p><strong>All-women guitar and sound studio.</strong></p>
+        <p>We warmly welcome LGBTQ+ musicians, guitarists, and bassists.</p>
+        <p style="margin-top: 16px;">With 10 years of performing and 3 years of repair experience, we offer professional craftsmanship and thoughtful service in London.</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="price.html">Price list</a>
+        <a href="contact.html">Appointment & Contact</a>
+      </nav>
+    </main>
+
+    <footer>
+      &copy; 2026 P5 Sound Studio / Professional Guitar Care
+    </footer>
+  </div>
+
 </body>
 </html>
