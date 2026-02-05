@@ -3,64 +3,170 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Appointment & Contact · P5 sound studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Contact | P5 Sound Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
   <style>
+    /* 基础复位与全局风格统一 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: "Inter", sans-serif;
-      background: #ffe0e0;
-      color: #000000;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
+      background: #fcfcfc;
+      color: #1a1a1a;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
-    .page {
+
+    .wrapper {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 1px 24px;
-      text-align: center;
+      padding: 60px 40px;
+      max-width: 900px;
+      margin: 0 auto;
     }
+
+    header {
+      margin-bottom: 80px;
+    }
+
     h1 {
       font-family: "Space Grotesk", sans-serif;
-      font-size: 40px;
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    /* 联系信息布局 */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+
+    .contact-section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #999;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .contact-method {
+      margin-bottom: 32px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-size: 18px;
       font-weight: 400;
-      margin-bottom: 48px;
+      color: #000;
+      text-decoration: none;
+      transition: opacity 0.3s;
     }
-    p {
-      font-size: 16px;
-      margin-bottom: 12px;
+
+    .contact-value:hover {
+      opacity: 0.6;
     }
-    .back {
-      margin-top: 64px;
-      font-size: 14px;
+
+    /* 预约须知 */
+    .booking-info {
+      border-top: 1px solid #eee;
+      padding-top: 60px;
+      max-width: 600px;
+    }
+
+    .booking-info p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    /* 返回按钮 */
+    .back-nav {
+      margin-top: auto;
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+
+    .back-nav a {
       text-decoration: none;
       color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .wrapper { padding: 40px 24px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <h1>Appointment & Contact</h1>
 
-    <p>WhatsApp / SMS: +44 07340766928</p>
-    <p>
-  Instagram (DM):
-  <a href="https://www.instagram.com/ankiiid_/" target="_blank">
-    @Ankiiid_
-  </a>
-</p>
-<p>
-  Email:
-  <a href="mailto:soymilkcop@outlook.com">
-    soymilkcop@outlook.com
-  </a>
-</p>
-    <p>WeChat: 842076864</p>
-    <a href="index.html" class="back">Back to home</a>
+  <div class="wrapper">
+    <header>
+      <h1>Get in Touch</h1>
+    </header>
+
+    <main>
+      <div class="contact-grid">
+        <div class="contact-group">
+          <span class="contact-section-title">Direct Contact</span>
+          
+          <div class="contact-method">
+            <span class="contact-label">WhatsApp / SMS</span>
+            <a href="https://wa.me/447340766928" class="contact-value">+44 07340766928</a>
+          </div>
+
+          <div class="contact-method">
+            <span class="contact-label">Instagram</span>
+            <a href="https://www.instagram.com/ankiiid_/" target="_blank" class="contact-value">@Ankiiid_</a>
+          </div>
+
+          <div class="contact-method">
+            <span class="contact-label">Email</span>
+            <a href="mailto:soymilkcop@outlook.com" class="contact-value">soymilkcop@outlook.com</a>
+          </div>
+
+          <div class="contact-method">
+            <span class="contact-label">WeChat</span>
+            <span class="contact-value">842076864</span>
+          </div>
+        </div>
+
+        <div class="booking-info">
+          <span class="contact-section-title">Appointments</span>
+          <p>We operate on an <strong>appointment-only</strong> basis to ensure each instrument gets our full attention.</p>
+          <p>When reaching out, please let us know your guitar model and a brief description of the service or issue.</p>
+          <p style="color: #999; font-size: 13px;">Studio Location: London (Address provided upon booking)</p>
+        </div>
+      </div>
+
+      <nav class="back-nav">
+        <a href="index.html">← Back to home</a>
+      </nav>
+    </main>
   </div>
+
 </body>
 </html>
