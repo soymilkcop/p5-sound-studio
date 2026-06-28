@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | P5 Sound Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    /* 基础复位 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #fcfcfc;
+      color: #1a1a1a;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 布局容器 */
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 顶部 Logo 区域 */
+    header {
+      margin-bottom: 80px;
+    }
+    
+    /* 让 Logo 可点击，方便返回首页 */
+    header a {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 500;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      display: block;
+      font-weight: 300;
+      font-size: 0.4em;
+      letter-spacing: 0.2em;
+      margin-top: 10px;
+      color: #666;
+    }
+
+    /* 页面标题区 */
+    .page-header {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .page-title {
+      font-size: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* 返回首页链接 */
+    .back-link {
+      text-decoration: none;
+      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .back-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      transition: width 0.3s ease;
+    }
+
+    .back-link:hover::after {
+      width: 100%;
+    }
+
+    /* 画廊网格布局 */
+    .gallery-grid {
+      display: grid;
+      /* 响应式网格：每列最小 280px，自动填满 */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1 / 1; /* 正方形构图 */
+      overflow: hidden;
+      background: #eee;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 保证图片不变形填满容器 */
+      filter: grayscale(100%); /* 默认黑白，增加严谨感 */
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      filter: grayscale(0%); /* 悬停恢复色彩 */
+      transform: scale(1.03); /* 轻微放大，增加互动感 */
+    }
+
+    /* 页脚 */
+    footer {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: #999;
+      text-transform: uppercase;
+      margin-top: auto;
+      padding-top: 60px;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .wrapper { padding: 40px 24px; }
+      header { margin-bottom: 50px; }
+      .page-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header>
+      <a href="index.html">
+        <h1>P5<span>Sound Studio</span></h1>
+      </a>
+    </header>
+
+    <main>
+      <div class="page-header">
+        <div class="page-title">Gallery</div>
+        <a href="index.html" class="back-link">Back to Index</a>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="./guitar%20img/img20.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img18.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img19.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img9.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img8.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img5.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img4.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img6.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img7.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img3.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img2.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img1.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img17.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img14.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img11.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img10.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img12.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+        <div class="gallery-item"><img src="./guitar%20img/img13.jpg" alt="Guitar repair and studio work" loading="lazy"></div>
+      </div>
+    </main>
+
+    <footer>
+      &copy; 2026 P5 Sound Studio / Professional Guitar Care
+    </footer>
+  </div>
+
+</body>
+</html>
