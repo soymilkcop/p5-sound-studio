@@ -95,6 +95,22 @@
       margin-bottom: 20px;
     }
 
+    /* 新增快速回复提示样式 */
+    .response-notice {
+      background: #f4f4f5;
+      border-left: 3px solid #1a1a1a;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .response-notice p {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
     /* 返回按钮 */
     .back-nav {
       margin-top: auto;
@@ -134,7 +150,7 @@
           <span class="contact-section-title">Direct Contact</span>
           
           <div class="contact-method">
-            <span class="contact-label">WhatsApp / SMS</span>
+            <span class="contact-label">WhatsApp / iMessage / SMS</span>
             <a href="https://wa.me/447340766928" class="contact-value">+44 07340766928</a>
           </div>
 
@@ -156,6 +172,12 @@
 
         <div class="booking-info">
           <span class="contact-section-title">Appointments</span>
+          
+          <!-- 新增的高亮提示框 -->
+          <div class="response-notice">
+            <p><strong>Fastest Response:</strong> Please try to contact via text on <strong>WhatsApp, iMessage, or Email</strong> for a quick reply!</p>
+          </div>
+
           <p>We operate on an <strong>appointment-only</strong> basis to ensure each instrument gets our full attention.</p>
           <p>When reaching out, please let us know your guitar model and a brief description of the service or issue.</p>
           <p style="color: #999; font-size: 13px;">Studio Location: SW97DP (Address detail provided upon booking)</p>
